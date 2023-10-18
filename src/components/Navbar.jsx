@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 let navList = [
@@ -8,16 +8,19 @@ let navList = [
 ];
 
 const Navbar = () => {
+  const [toggle, setToggle] = useState(false);
+
   return (
-    <nav className="text-white text-xl">
-      {navList.map((list, i) => (
-        <Link to={list.url} key={i} className="mx-2">
-          {list.title}
-        </Link>
-      ))}
+    <nav className="w-full flex py-5 text-white text-lg font-comfortaa justify-end ">
+      <ul>
+        {navList.map((list, i) => (
+          <Link to={list.url} key={i} className="mx-3">
+            {list.title}
+          </Link>
+        ))}
+      </ul>
     </nav>
   );
 };
 
 export default Navbar;
-
